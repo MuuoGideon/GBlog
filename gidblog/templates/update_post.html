@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form action=""  method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<a href="{% url 'home' %}" class="card-link">Back</a>
+		<button class="btn btn-secondary" type="submit">Update</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+		<div class="card" style="width: 18rem;">
+  <div class="card-body" style="background-color: #33001a;color:white;">
+    <h4 class="card-title">Title: {{ post.title }}</h4>
+    <p style="color:white;">Author: {{ post.author.first_name }} {{ post.author.last_name }} ({{ post.author }})</p> <hr>
+    <p class="card-text">{{ post.body }}</p>
+    <a href="{% url 'home' %}" class="card-link">Back</a>
+  </div>
+</div>
+{% endblock %}

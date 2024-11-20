@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid" style="background-color:#33001a;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'dash-board' %}">Dashboard</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+         
+
+          
+         {% if user.is_authenticated %}
+
+         
+
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'add-post' %}">Add Post</a>
+         </li>
+         
+         
+
+         <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout-user' %}">Logout</a>
+          </li>
+
+
+          {% else %}
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'login-user' %}">Login</a>
+        </li>
+          {% endif %}
+        
+        
+
+        
+      </ul>
+      <form action="{% url 'search-post' %}" method="POST" class="d-flex" role="search">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search record..." aria-label="Search" name="searched"  required>
+        <button class="btn btn-secondary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

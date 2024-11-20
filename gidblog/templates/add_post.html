@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Add a new post</h1> <br>
+		{% if submitted %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+              Post successfully submitted
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close" ></button>
+            </div>
+			
+		{% else %}
+		<form action="" method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}	
+			<input type="submit" value="Submit" class="btn btn-secondary" name="submitted">	
+			
+		</form>
+		{% endif %}
+{% endblock %}
